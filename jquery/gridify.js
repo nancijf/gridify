@@ -13,6 +13,7 @@
         imagesLoaded: function(cb)
         {
             var images = $(this).find('img');
+            console.log(images);
             var count = images.length;
             if (count == 0) cb();
             for(var i = 0, length = images.length; i< length; i++)
@@ -24,6 +25,7 @@
                 }
                 image.src = images[i].src;
             }
+ 
         },
         gridify: function(options) {
             var $this = $(this),
@@ -39,8 +41,7 @@
                 {
                     $this.css('position', 'relative');
                     var items = $this.find(options.srcNode),
-                        transition = (options.transition || 'all 0.5s ease') + ', height 0, width 0',
-                        width = $this.innerWidth(),
+                       width = $this.innerWidth(),
                         item_margin = parseInt(options.margin || 0),
                         item_width = parseInt(options.max_width || options.width || 220),
                         column_count = Math.max(Math.floor(width/(item_width + item_margin)),1),
@@ -66,7 +67,7 @@
                             margin: item_margin/2,
                             top: columns[idx] + item_margin/2,
                             left: (item_width + item_margin) * idx + left,
-                            transition: transition
+                            opacity: 1
                         });
                         columns[idx] += $item.innerHeight() + item_margin;
                     }
@@ -77,6 +78,9 @@
                 var resize =  $(window).on("resize", render);
                 $this.on('remove', resize.unbind);
             }
+            var images = $(this).find('img');
+            var count = images.length;
+ 
         }
     });
 }));

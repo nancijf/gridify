@@ -10,6 +10,10 @@ Features
 - support dynamic item width
 - support animation (CSS3 transition)
 
+Added Features
+- support remote dynamically generated images
+- support for fading in images sequentially
+
 ![ScreenShot](/screenshot.jpg)
 
 # Usage
